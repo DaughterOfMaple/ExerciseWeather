@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ExerciseWeather.ViewModels"
+             x:DataType="local:SettingsPageViewModel"
+             x:Class="ExerciseWeather.Views.SettingsPage"
+             BackgroundColor="{Binding BackgroundColor}"
+             Padding="20">
+
+    <ContentPage.Resources>
+        <Style TargetType="Slider">
+            <Setter
+                Property="MinimumTrackColor"
+                Value="#0A043C" />
+            <Setter
+                Property="MaximumTrackColor"
+                Value="#171717" />
+            <Setter
+                Property="ThumbColor"
+                Value="#0A043C" />
+            <Setter
+                Property="HeightRequest"
+                Value="20" />
+        </Style>
+        <Style TargetType="Switch">
+            <Setter
+                Property="ThumbColor"
+                Value="#0A043C" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout
+        Padding="10"
+        Spacing="10"
+        VerticalOptions="Start"
+        BackgroundColor="{StaticResource whiteBackground}">
+
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal">
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Your city"
+                PlaceholderColor="SlateGray"
+                TextColor="Black"
+                FontSize="24"
+                FontAttributes="Bold"
+                Text="{Binding CityName}" />
+            <Button
+                Style="{x:StaticResource Key=ClickedButton}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="40"
+                HeightRequest="40"
+                Text="{StaticResource IconRefresh}"
+                Command="{Binding FetchWeatherCommand}"
+                Font="Material"
+                FontSize="20" />
+        </StackLayout>
+
+        <Label
+            Text="{Binding ExerciseTime,
+            StringFormat='Exercise time: {0} minute(s)'}" />
+        <Slider
+            Maximum="5"
+            Minimum="1"
+            Value="{Binding ExerciseTime}"/>
+
+        <Label
+            Text="{Binding RestTime,
+            StringFormat='Rest time: {0} seconds'}" />
+        <Slider
+            Maximum="60"
+            Minimum="10"
+            Value="{Binding RestTime}" />
+
+        <Label
+            Text="{Binding NumberOfExercises,
+            StringFormat='Number of exercises: {0}'}" />
+        <Slider
+            Maximum="15"
+            Minimum="3"
+            Value="{Binding NumberOfExercises}" />
+
+        <StackLayout
+            Orientation="Horizontal">
+            <Label
+                Text="Night Mode" />
+            <Switch
+                IsToggled="{Binding IsNight}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

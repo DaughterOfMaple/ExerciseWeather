@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:ExerciseWeather.ViewModels"
+             x:DataType="local:WorkoutPageViewModel"
+             x:Class="ExerciseWeather.Views.WorkoutPage"
+             BackgroundColor="{Binding BackgroundColor}"
+             NavigationPage.HasNavigationBar="False"
+             Padding="20">
+
+    <StackLayout
+        Spacing="10">
+
+        <Label
+            HorizontalTextAlignment="Center"
+            FontSize="20"
+            IsVisible="{Binding IsPortraitMode}"
+            TextColor="{Binding LabelTextColor}"
+            Text="{Binding WeatherMessage}" />
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Center">
+            <Button
+                Style="{x:StaticResource Key=Iconbutton}"
+                Font="Material"
+                FontSize="18"
+                IsVisible="{Binding IsPortraitMode}"
+                BackgroundColor="{Binding ButtonBackgroundColor}"
+                TextColor="{Binding ButtonTextColor}"
+                Text="{StaticResource IconHistory}"
+                Command="{Binding ToHistoryPageCommand}"/>
+            <Button
+                Style="{x:StaticResource Key=ClickedButton}"
+                IsVisible="{Binding IsPortraitMode}"
+                BackgroundColor="{Binding ButtonBackgroundColor}"
+                TextColor="{Binding ButtonTextColor}"
+                Text="Reset workout"
+                Command="{Binding ResetBtnCommand}"/>
+            <Button
+                Style="{x:StaticResource Key=Iconbutton}"
+                Font="Material"
+                FontSize="18"
+                IsVisible="{Binding IsPortraitMode}"
+                BackgroundColor="{Binding ButtonBackgroundColor}"
+                TextColor="{Binding ButtonTextColor}"
+                Text="{StaticResource IconSettings}"
+                Command="{Binding ToSettingsPageCommand}"/>
+        </StackLayout>
+        
+        <Label
+            HorizontalTextAlignment="Center"
+            FontSize="50"
+            TextColor="{Binding LabelTextColor}"
+            Text="{Binding CurrentExercise}" />
+
+        <Grid
+            VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Button 
+                Grid.Column="0"
+                FontSize="18"
+                Font="Material"
+                Background="Transparent"
+                Text="{StaticResource IconRewind}"
+                Command="{Binding ReverseBtnCommand}" />
+            <Label
+                Grid.Column="1"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="80"
+                TextColor="{Binding LabelTextColor}">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0}:{1:D2}">
+                        <Binding Path="MinutesRemaining" />
+                        <Binding Path="SecondsRemaining" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            <Button 
+                Grid.Column="2"
+                FontSize="18"
+                Font="Material"
+                BackgroundColor="Transparent"
+                Text="{StaticResource IconFastForward}"
+                Command="{Binding SkipBtnCommand}" />
+        </Grid>
+        
+        <Label
+            Padding="10"
+            HorizontalTextAlignment="End" 
+            IsVisible="{Binding IsPortraitMode}"
+            TextColor="{Binding LabelTextColor}"
+            Text="{Binding ExercisesRemaining,
+            StringFormat='Exercises remaining: {0}'}" />
+
+        <Button
+            Style="{x:StaticResource Key=ClickedButton}"
+            BackgroundColor="{Binding StartBtnColor}"
+            TextColor="Snow"
+            Text="{Binding StartBtnText}" 
+            Command="{Binding StartBtnCommand}" />
+    </StackLayout>
+</ContentPage>  

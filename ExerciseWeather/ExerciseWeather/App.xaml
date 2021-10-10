@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExerciseWeather.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="whiteBackground">#80fffafa</Color>
+
+            <!-- Icon codes -->
+            <x:String x:Key="IconRefresh">&#xe5d5;</x:String>
+            <x:String x:Key="IconHistory">&#xe889;</x:String>
+            <x:String x:Key="IconSettings">&#xe8b8;</x:String>
+            <x:String x:Key="IconFastForward">&#xe01f;</x:String>
+            <x:String x:Key="IconRewind">&#xe020;</x:String>
+        </ResourceDictionary>
+
+        <Style TargetType="Label">
+            <Setter
+                Property="VerticalTextAlignment"
+                Value="Center" />
+            <Setter
+                Property="Padding"
+                Value="5" />
+            <Setter
+                Property="FontSize"
+                Value="18" />
+            <Setter
+                Property="TextColor"
+                Value="Black" />
+        </Style>
+
+        <Style x:Key="ClickedButton" TargetType="Button">
+            <Setter
+                Property="HeightRequest"
+                Value="50"/>
+            <Setter
+                Property="CornerRadius"
+                Value="25" />
+            <Setter
+                Property="BorderWidth"
+                Value="1" />
+            <Setter
+                Property="BorderColor"
+                Value="Black" />
+        </Style>
+
+        <Style x:Key="Iconbutton" TargetType="Button" BasedOn="{StaticResource ClickedButton}">
+            <Setter
+                Property="WidthRequest"
+                Value="50"/>
+            <Setter
+                Property="FontSize"
+                Value="18" />
+        </Style>
+    </Application.Resources>
+</Application>
