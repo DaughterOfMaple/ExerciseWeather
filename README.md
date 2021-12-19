@@ -25,7 +25,7 @@ A customisable workout app that prompts you to get up and go outside on a nice d
   * [Future ambitions](#future-ambitions)
 
 ## Background
-As part of my Cert IV in programming, I was required to produce a mobile app for Android. As I had already spent some time learning C#, this seemed like a good opportunity to dive into cross-platform development with Xamarin Forms.  
+As part of my Cert IV in programming, I created a mobile app for Android, developed with Xamarin Forms.  
 I chose to program in Visual Studio Community on Windows.
 
 ## Overview
